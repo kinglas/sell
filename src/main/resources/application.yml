@@ -1,0 +1,40 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    password: 123456
+    url: jdbc:mysql://172.18.200.132/sell?characterEncoding=utf-8&useSSL=false
+#      下面的jpa配置表示，sql语句打印出来
+  jpa:
+    show-sql: true
+  jackson:
+    default-property-inclusion: non_null  #这是一个全局配置，表示如果返回的字段值为 null 则不返回
+  redis:
+    host: 172.18.200.132
+    port: 6379
+server:
+  context-path: /sell
+
+#logging:
+#  pattern:
+#    console: "%d - %msg%n"
+#    path表示日志输出路径，会默认生成一个文件名，file 表示生成一个 sell.log文件，存放在
+#F:\ideaIU\work-space\sell\var\log\tomcat 路径下
+#  path: F:\ideaIU\work-space\sell\var\log\tomcat
+#  file: F:\ideaIU\work-space\sell\var\log\tomcat\sell.log
+# 这里我把log的配置放在logback-spring.xml文件里
+wechat:
+  mpAppId: wxd898fcb01713c658
+  mchId: 1483469312
+  openAppId: wx6ad144e54af67d87
+  openAppSecret: 91a2ff6d38a2bbccfb7e9f9079108e2e
+  mchKey: C5245D70627C1F8E9964D494B0735025
+  keyPath: /var/weixin_cert/h5.p12
+  notifyUrl: http://kinglas.nat300.top/sell/pay/notify
+
+projectUrl:
+  wechatMpAuthorize: http://kinglas.nat300.top
+  wechatOpenAuthorize: http://kinglas.nat300.top
+  sell: http://kinglas.nat300.top
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
